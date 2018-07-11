@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/Chat');
+mongoose.connect(process.env.MONGOLAB_URI); //'mongodb://127.0.0.1:27017/Chat'
 mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;
 
