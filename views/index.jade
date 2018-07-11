@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Simple Chat App API
+  p Welcome to the Chat App Server API 
+  p
+  p *send messages
+  p *Receive messages
+  p *list all contacts
+  p *check login credentials
   script(type='text/javascript',src='https://cdn.socket.io/socket.io-1.2.0.js')
   script(type='text/javascript').
    var socket = io('http://localhost:3000');
