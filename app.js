@@ -43,5 +43,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var server= require('http').createServer(app);
+var io=require('socket.io')(server);
+
+app.io = io;
+io.on('connection', function (socket) {
+  console.log('connected'+socket.id)
+  socket.on('send',data=>{
+    console.log(data)
+  });
+});
+server.listen('3000');
+
 
 module.exports = app;

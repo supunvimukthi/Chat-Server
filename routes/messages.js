@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect('mongodb://127.0.0.1:27017/Chat');
 mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;
 
@@ -24,6 +24,8 @@ router.post('/send', function (req, res, next) {
     var receiver = req.body.receiver;
     var time = req.body.time;
     var date = req.body.date;
+    console.log(receiver);
+    
 
     console.log(message, sender, receiver, time, date);
     var item= { 
@@ -33,8 +35,12 @@ router.post('/send', function (req, res, next) {
         time: time, 
         date: date
      }
+    req.app.io.emit(receiver,item);
     var data = new MessageData(item);
-    data.save();
+    data.save()
+    .catch(function(err) {
+        console.log(err);
+        }); 
     res.send({ 'message': 'message sent' });
 });
 
