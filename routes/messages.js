@@ -52,7 +52,7 @@ router.post('/receive', function (req, res, next) {
     var receiver = req.body.receiver;
     console.log(sender, receiver);
 
-    MessageData.find({ $or: [{ sender: sender, receiver: receiver }, { sender: receiver, receiver: sender }] }).sort({ "date": -1 })
+    MessageData.find({ $or: [{ sender: sender, receiver: receiver }, { sender: receiver, receiver: sender }] }).sort({ "date": 1 })
     .then(function(items) {
     res.send({'data': items});
     })
