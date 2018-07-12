@@ -46,7 +46,7 @@ app.use(function(err, req, res, next) {
 var server= require('http').createServer(app);
 var io=require('socket.io')(server);
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = process.env.PORT;
 console.log('listening on'+port);
 app.io = io;
 io.on('connection', function (socket) {
