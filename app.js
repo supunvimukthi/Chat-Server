@@ -46,6 +46,9 @@ app.use(function(err, req, res, next) {
 var server= require('http').createServer(app);
 var io=require('socket.io')(server);
 
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
 app.io = io;
 io.on('connection', function (socket) {
   console.log('connected'+socket.id)
@@ -53,7 +56,7 @@ io.on('connection', function (socket) {
     console.log(data)
   });
 });
-server.listen('3000');
+server.listen(port);
 
 
 module.exports = app;
