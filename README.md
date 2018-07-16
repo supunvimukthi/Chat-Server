@@ -1,6 +1,6 @@
 # Chat-Server
 Server which is deployed on heroku to be used by the [chat-app](https://github.com/supunvimukthi/ChatApp). 
-- **deployed on heroku - [link](https://evening-ridge-37409.herokuapp.com/)** 
+- *deployed on heroku - [link](https://evening-ridge-37409.herokuapp.com/)* 
  
 ### Four routes to access the mongo db used for the chat-app. 
 - **GET-to get the list of contacts - */users/list*** 
